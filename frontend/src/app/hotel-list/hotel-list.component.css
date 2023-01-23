@@ -1,0 +1,14 @@
+.titre {
+  display: flex;
+  justify-content: center;
+}
+
+.badge {
+  background-color: rgba(0, 30, 255, 0.763);
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.margin{
+  margin: 1%
+}
