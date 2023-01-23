@@ -12,6 +12,8 @@ import { NgPipesModule } from 'ngx-pipes';
 import { StarRatingComponent } from './shared/pipes/components/start-rating/star-rating.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { HotelDetailComponent } from './hotel-list/hotel-detail/hotel-detail.component';
+import { RouterModule } from '@angular/router';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -22,13 +24,21 @@ registerLocaleData(localeFr, 'fr');
     ReplaceComma,
     StarRatingComponent,
     HomeComponent,
+    HotelDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgPipesModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'hotels', component: HotelListComponent },
+      { path: 'hotels/:id', component: HotelDetailComponent },
+      { path: 'home', component: HomeComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: '**', redirectTo: 'home', pathMatch: 'full' },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
