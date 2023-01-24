@@ -22,10 +22,12 @@ export class HotelDetailComponent implements OnInit {
   ngOnInit(): void {
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
     this.hotelService.getHotels().subscribe((hotels: IHotel[]) => {
-      this.hotel = hotels.find(hotel => hotel.hotelId === id);
-      })
+      this.hotel = hotels.find(hotel => hotel.hotelId === id)!;
+    })
 
-    console.log('L\'HOTEL" =>', this.hotel);
+    setTimeout (() => {
+      console.log('L\'HOTEL =>', this.hotel);
+    }, 1)
 
   }
 

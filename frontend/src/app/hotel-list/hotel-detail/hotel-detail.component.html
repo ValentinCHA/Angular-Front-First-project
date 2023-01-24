@@ -1,1 +1,20 @@
-<p>hotel-detail works!</p>
+<div class="card m-5 w-auto">
+  <div class="card-header bg-primary">
+   <span class="h2 text-white">{{hotel.hotelName | titlecase | uppercase}}</span>
+  </div>
+  <div class="imageDetails">
+    <img
+          class="card-img-right img-fluid img mt-3"
+          [src]="hotel.imageUrl"
+          [title]="hotel.hotelName | uppercase"
+          [alt]="hotel.hotelName"
+        />
+  </div>
+  <div class="card-body">
+    <div class="d-flex flex-column align-items-center">
+      <h5 class="card-title">Prix : {{hotel.price}}€</h5>
+      <p class="card-text">Description : {{hotel.description}}</p>
+      <app-star-rating [rating]="hotel.rating"></app-star-rating>
+    </div>
+  </div>
+</div>
