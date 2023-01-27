@@ -15,6 +15,15 @@
       <h5 class="card-title">Prix : {{hotel.price}}€</h5>
       <p class="card-text">Description : {{hotel.description}}</p>
       <app-star-rating [rating]="hotel.rating"></app-star-rating>
+      <button [routerLink]="['/hotels']" class="material-icons bg-info text-white p-2 rounded-circle btn">
+        keyboard_arrow_left
+      </button>
+    </div>
+    <div class="card-footer">
+      <button (click)="backToHotelList()" class="btn btn-primary">
+        <span class="material-icons bg-info text-white p-2 rounded-circle btn">keyboard_arrow_left</span>
+        Retour à la liste
+      </button>
     </div>
   </div>
 </div>

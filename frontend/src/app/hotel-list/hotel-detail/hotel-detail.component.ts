@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IHotel } from '../hotel';
 import { HotelListService } from '../hotel-list.service';
 
@@ -12,9 +12,12 @@ export class HotelDetailComponent implements OnInit {
 
   public hotel: IHotel = <IHotel>{};
 
+
+
   constructor(
     private route: ActivatedRoute,
-    private hotelService: HotelListService
+    private hotelService: HotelListService,
+    private router: Router
     ) {
 
   }
@@ -29,6 +32,16 @@ export class HotelDetailComponent implements OnInit {
       console.log('L\'HOTEL =>', this.hotel);
     }, 1)
 
+  }
+
+  // Première méthode
+  // public backToHotelList(): void {
+  //   window.history.back();
+  // }
+
+  // Deuxième méthode
+  public backToHotelList(): void {
+    this.router.navigate(['/hotels']);
   }
 
 }
