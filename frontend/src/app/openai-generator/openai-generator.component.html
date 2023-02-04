@@ -2,12 +2,12 @@
   <h2 class="titre">{{ title }}</h2>
 </div>
 
-<!-- <div>
+<div class="m-5">
   <form>
     <label>
       Question:
-      <input type="text" [(ngModel)]="prompt" (keyup.enter)="generateText()" />
+      <input type="text" [(ngModel)]="prompt" name="prompt" (keyup.enter)="generateText()" />
     </label>
   </form>
   <p *ngIf="generatedText">{{ generatedText }}</p>
-</div> -->
+</div>

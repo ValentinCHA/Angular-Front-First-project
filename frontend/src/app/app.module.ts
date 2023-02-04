@@ -4,45 +4,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HotelListComponent } from './hotel-list/hotel-list.component';
-import { ReplaceComma } from './shared/pipes/replace-comma.pipe';
-import { NgPipesModule } from 'ngx-pipes';
-import { StarRatingComponent } from './shared/pipes/components/start-rating/star-rating.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgPipesModule } from 'ngx-pipes';
+
+import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HotelDetailComponent } from './hotel-list/hotel-detail/hotel-detail.component';
-import { RouterModule, CanActivate } from '@angular/router';
-import { HotelDetailGuard } from './hotel-list/hotel-detail/hotel-detail.guard';
+import { OpenaiGeneratorComponent } from './openai-generator/openai-generator.component';
+import { HotelModule } from './hotels/hotel.module';
+import { AppRoutingModule } from './app-routing.module';
+import { AjoutHotelComponent } from './ajout-hotel/ajout-hotel.component';
+
+
+
 
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
     AppComponent,
-    HotelListComponent,
-    ReplaceComma,
-    StarRatingComponent,
     HomeComponent,
-    HotelDetailComponent,
+    OpenaiGeneratorComponent,
+    AjoutHotelComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     NgPipesModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'hotels', component: HotelListComponent },
-      {
-        path: 'hotels/:id', component: HotelDetailComponent,
-        canActivate: [HotelDetailGuard]
-      },
-      { path: 'home', component: HomeComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: '**', redirectTo: 'home', pathMatch: 'full' },
-    ])
+    HotelModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
